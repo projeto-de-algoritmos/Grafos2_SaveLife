@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "nodemon init.js"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "prompt": "^1.2.2",
+    "prompt-sync": "^4.2.0",
+    "xhr2": "^0.2.1"
+  }
+}
