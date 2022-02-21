@@ -18,6 +18,58 @@ export default class Graph {
       
     }
 
+    primMST(){
+        const MST = new Graph();
+
+
+          let Nlist = Object.keys(this.adjacencyList);
+          let Elist  = Object.values(this.adjacencyList);
+      
+        if (Nlist.length === 0) {
+            return MST;
+        }
+
+        let s = Nlist[0];
+        let edgeQueue = new PriorityQueue();
+        let explored = new Set();
+        explored.add(s);
+        MST.addNode(s);
+
+    
+      
+        Elist[0].forEach(edge => {
+            edgeQueue.PEnqueue([s, edge.node], edge.weight);
+        });
+
+        let currentMinEdge = edgeQueue.PDequeue();
+
+        while(!edgeQueue.PQisEmpty()){
+      
+            while(!edgeQueue.PQisEmpty() && explored.has(currentMinEdge.element[1])){
+            currentMinEdge = edgeQueue.PDequeue();
+            }
+
+            let next = currentMinEdge.element[1];
+            let nextNode  = Nlist.indexOf(next);
+          console.log("nexttt:  " + next);
+          console.log("nextNode:  " + nextNode);
+          
+            if (!explored.has(next)) {
+
+                MST.addNode(next);
+                MST.addEdge(currentMinEdge.element[0], next, currentMinEdge.priority);
+                Elist[nextNode].forEach(edge => {
+                   edgeQueue.PEnqueue([next, edge.node], edge.weight);
+            });
+       
+                s = next;
+              explored.add(next);
+            }
+        }
+  
+        return MST;
+    }
+
     printGraph() {
         var get_keys = Object.keys(this.adjacencyList)
 
@@ -35,6 +87,3 @@ export default class Graph {
 
     
 }
-
- 
-
