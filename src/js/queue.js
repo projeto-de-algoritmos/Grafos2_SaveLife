@@ -1,4 +1,4 @@
-export default class Queue{
+module.exports = class Queue{
     constructor(){
         this.items = [];
     }

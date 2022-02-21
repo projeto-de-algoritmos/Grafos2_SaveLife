@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon init.js"
+    "start": "nodemon ./src/js/init.js"
   },
   "dependencies": {
     "axios": "^0.26.0",

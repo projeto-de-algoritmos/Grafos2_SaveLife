@@ -1,7 +1,6 @@
-import Queue from "./queue.js";
-import PriorityQueue from "./priorityQueue.js";
-
-export default class Graph {
+const Queue = require('./queue.js');
+const PriorityQueue = require('./priorityQueue.js');
+class Graph {
     constructor(numNodes){
         this.numNodes = numNodes;
         this.adjacencyList = {}
@@ -12,10 +11,10 @@ export default class Graph {
     }
 
 
-    addEdge(v, u, weight){ 
+    addEdge(v, u, weight){
         this.adjacencyList[v].push({node: u, weight:weight});
         this.adjacencyList[u].push({node: v, weight:weight});
-      
+
     }
 
     primMST(){
@@ -24,7 +23,7 @@ export default class Graph {
 
           let Nlist = Object.keys(this.adjacencyList);
           let Elist  = Object.values(this.adjacencyList);
-      
+
         if (Nlist.length === 0) {
             return MST;
         }
@@ -35,8 +34,8 @@ export default class Graph {
         explored.add(s);
         MST.addNode(s);
 
-    
-      
+
+
         Elist[0].forEach(edge => {
             edgeQueue.PEnqueue([s, edge.node], edge.weight);
         });
@@ -44,7 +43,7 @@ export default class Graph {
         let currentMinEdge = edgeQueue.PDequeue();
 
         while(!edgeQueue.PQisEmpty()){
-      
+
             while(!edgeQueue.PQisEmpty() && explored.has(currentMinEdge.element[1])){
             currentMinEdge = edgeQueue.PDequeue();
             }
@@ -53,7 +52,7 @@ export default class Graph {
             let nextNode  = Nlist.indexOf(next);
           console.log("nexttt:  " + next);
           console.log("nextNode:  " + nextNode);
-          
+
             if (!explored.has(next)) {
 
                 MST.addNode(next);
@@ -61,12 +60,12 @@ export default class Graph {
                 Elist[nextNode].forEach(edge => {
                    edgeQueue.PEnqueue([next, edge.node], edge.weight);
             });
-       
+
                 s = next;
               explored.add(next);
             }
         }
-  
+
         return MST;
     }
 
@@ -84,6 +83,4 @@ export default class Graph {
         }
 
     }
-
-    
 }

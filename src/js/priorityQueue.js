@@ -5,8 +5,8 @@ class QElement {
         this.priority = priority;
     }
 }
- 
-export default class PriorityQueue {
+
+module.exports = class PriorityQueue {
      constructor()
     {
         this.items = [];
@@ -15,7 +15,7 @@ export default class PriorityQueue {
     PEnqueue(element, priority){
         var qElement = new QElement(element, priority);
         var contain = false;
-        
+
         // iterating até achar a posição correta na fila
         for (var i = 0; i < this.items.length; i++) {
             if (this.items[i].priority > qElement.priority) {
@@ -25,7 +25,7 @@ export default class PriorityQueue {
                 break;
             }
         }
-    
+
         //maior prioridade ->fim da fila
         if (!contain) {
             this.items.push(qElement);
