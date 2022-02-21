@@ -9,6 +9,27 @@ const endpoints = {
     'df': `${url}62138f0aca70c44b6ea21400/latest`,
 }
 
+const options = {
+    method: 'GET',
+    url: 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/',
+    params: {ip: ''},
+    headers: {
+      'x-rapidapi-host': 'ip-geolocation-ipwhois-io.p.rapidapi.com',
+      'x-rapidapi-key': 'aafddca794mshce78d6092dfdf9fp1c67acjsn1a08597abf8c'
+    }
+};
+
+const requestGeolocation = (publicIP) => {
+    options.params.ip = publicIP;
+
+    axios.request(options).then(response => {
+        console.log(response.data);
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+
 const requestData = (uf) => {
 
     const states = Object.keys(endpoints)
@@ -49,8 +70,11 @@ const init = async () => {
         console.log('  state: ' + result.state);
         console.log('  ip: ' + result.ip);
 
+        requestGeolocation(result.ip);
+
         requestData(result.state).then(async onfulfilled => {
             let deserializedData = await transformData(onfulfilled);
+
 
             /*
             //Mandar dados para a estrutura de dados e gerar a MST
