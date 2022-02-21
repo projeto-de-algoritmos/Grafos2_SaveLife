@@ -32,7 +32,7 @@ const requestGeolocation = (publicIP) => {
 
 const requestData = (uf) => {
 
-    const states = Object.keys(endpoints)
+    const states = Object.keys(endpoints);
 
     if (!states.includes(uf)) {
         console.log('Não temos dados para este estado!');
