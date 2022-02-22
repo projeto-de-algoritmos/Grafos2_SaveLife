@@ -10,18 +10,37 @@
 | 18/0018574  |  Hérya Rodrigues Alcantara |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O Save Life é uma aplicação de linha de comando com objetivo de ajudar pessoas em situações de risco a encontrar Unidades Básicas de Saúde (UBS) mais próximas. Para tal, a aplicação utiliza árvores geradoras mínimas.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+![Imagem terminal](images/terminal.jpeg)
+![Imagem dados](images/dados.jpeg)
+![Imagem código](images/codigo.jpeg)
 
 ## Instalação 
 **Linguagem**: JavaScript<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+* Pré-requisitos:
+  * [Git](https://git-scm.com/)
+  * [NodeJS](https://nodejs.org/en/)
+  * [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+  
+ 
+ * Clonar o repositório
+ 
+  * Instalar dependências
+  ```bash
+  npm install
+  ```
+  
+ * Executar o projeto
+  ```bash
+  npm run start
+  ```
 
+## Uso
+É necessário inserir **df** como state e, em seguida,  o IP do usuário.
 
 
 
