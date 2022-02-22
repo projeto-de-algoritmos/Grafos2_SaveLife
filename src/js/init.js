@@ -106,7 +106,6 @@ const passDataToGraph = async (data, yourLatitude, yourLongitude) => {
     );
     if (distance != 0) g.addEdge(vertices[0], vertices[j], distance);
   }
-  g.primMST().printGraph();
 
   let ubsResultCodes = [];
   let ubsResultData = [];
@@ -121,7 +120,7 @@ const passDataToGraph = async (data, yourLatitude, yourLongitude) => {
 
   let radius = g.primMST().adjacencyList["9999999"][0]["weight"];
 
-  console.log(`UBS MAIS PRÓXIMAS EM UM RAIO DE ${radius}`);
+  console.log(`UBS MAIS PRÓXIMAS EM UM RAIO DE ${Math.round(radius)}KM`);
 
   console.log(ubsResultData);
 };
